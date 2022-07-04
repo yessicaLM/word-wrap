@@ -5,7 +5,10 @@ export const wordWrapCalculator = (stringValue: string, columnWide: number): str
   const listOfWords = [];
 
   while (stringValue.length > 0) {
-    const word = stringValue.substring(0, columnWide);
+    let word = stringValue.substring(0, columnWide);
+    if (word.charAt(word.length - 1) === ' ') {
+      word = word.trimEnd();      
+    }
     listOfWords.push(word);
     stringValue = stringValue.substring(columnWide);
   }
