@@ -13,7 +13,7 @@ Word wrap implements a function that given a word and a column width, inserts '\
 - **wordWrap('reallylongword',4)** -> 'real\nlylo\nngwo\nrd'
 - **wordWrap('abc def',4)** -> 'abc\ndef'
 - **wordWrap('abc def ghi',4)** -> 'abc\ndef\nghi'
-- **wordWrap(' abcdf',4)** -> '\nabcd'
+- **wordWrap(' abcdf',4)** -> '\nabcd\nf'
 - **wordWrap(null,5)** -> '[empty string]'
 - **wordWrap('hello',-5)** -> throw exception
 
