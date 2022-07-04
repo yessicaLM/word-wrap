@@ -1,24 +1,24 @@
 const isNullOrEmptyValue = (value: string | null): boolean => !value;
 
-const stringIsSmallerThanColumnWide = (value: string, columnWide: number): boolean => value.length <= columnWide;
+const stringIsSmallerThanColumnWidth = (value: string, columnWidth: number): boolean => value.length <= columnWidth;
 
-const columnBreakIsPositiveNumber = (columnWide: number): boolean => columnWide > 0;
+const columnBreakIsPositiveNumber = (columnWidth: number): boolean => columnWidth > 0;
 
 const stringValueHasLength = (stringValue: string): boolean => stringValue.length > 0;
 
 const charIsEmpty = (word: string, index: number): boolean => word.charAt(index) === ' ';
 
-export const wordWrapCalculator = (stringValue: string, columnWide: number): string => {
+export const wordWrapCalculator = (stringValue: string, columnWidth: number): string => {
   const EMPTY_STRING = '';
   const LINE_BREAK = '\n';
 
   if (isNullOrEmptyValue(stringValue)) return EMPTY_STRING;
 
-  if (stringIsSmallerThanColumnWide(stringValue, columnWide)) return stringValue;
+  if (stringIsSmallerThanColumnWidth(stringValue, columnWidth)) return stringValue;
 
-  if (columnBreakIsPositiveNumber(columnWide)) {
+  if (columnBreakIsPositiveNumber(columnWidth)) {
     const listOfWords = [];
-    let columnLimit = columnWide;
+    let columnLimit = columnWidth;
 
     while (stringValueHasLength(stringValue)) {
       let word = stringValue.substring(0, columnLimit);

@@ -9,7 +9,7 @@ describe('Word wrap', () => {
     expect(wordWrapCalculator(currentValue, columnBreakPosition)).toEqual(expectedValue);
   });
 
-  it('returns complete word when is not longer than column wide', () => {
+  it('returns complete word when is not longer than column width', () => {
     const currentValue = 'hello';
     const columnBreakPosition = 5;
     const expectedValue = 'hello';
