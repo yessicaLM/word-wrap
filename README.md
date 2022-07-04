@@ -1,6 +1,31 @@
-# Base template only with TypeScript
-You can use it for Coding-Dojos, Katas or reference to build a new project.
+# Code Kata: Word Wrap
 
-This template includes:
 
-💬 TypeScript 4.0.5
+## Description
+Word wrap implements a function that given a word and a column width, inserts '\n' (line-break) where the column ends and returns a new string.
+
+
+## Cases
+
+- **wordWrap('',5)** -> '[empty string]'
+- **wordWrap('hello',5)** -> 'hello'
+- **wordWrap('longword',4)** -> 'long\nword'
+- **wordWrap('reallylongword',4)** -> 'real\nlylo\nngwo\nrd'
+- **wordWrap('abc def',4)** -> 'abc\ndef'
+- **wordWrap('abc def ghi',4)** -> 'abc\ndef\nghi'
+- **wordWrap(' abcdf',4)** -> '\nabcd'
+- **wordWrap(null,5)** -> '[empty string]'
+- **wordWrap('hello',-5)** -> throw exception
+
+## Run project
+Install project dependencies:
+
+`
+npm install
+`
+
+To run all test in watch mode, run next command:
+
+`
+npm run test:watch
+`
