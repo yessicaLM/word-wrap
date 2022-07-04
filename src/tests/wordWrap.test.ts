@@ -1,3 +1,5 @@
+import { wordWrapCalculator } from '../core/wordWrap';
+
 // wordWrap('',5) -> ''
 // wordWrap('hello',5) -> 'hello'
 // wordWrap('longword',4) -> 'long\nword'
@@ -7,6 +9,7 @@
 // wordWrap('' abcdf',4) -> '\nabcd'
 // wordWrap(null,5) ->''
 // wordWrap('hello',-5) -> throw exception
+
 
 describe('Word wrap', () => {
   it('empty string returns empty string', () => {
