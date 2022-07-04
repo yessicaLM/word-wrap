@@ -1,6 +1,6 @@
 import { wordWrapCalculator } from '../core/wordWrap';
 
-// wordWrap('',5) -> ''
+// wordWrap('',5) -> '' --> DONE
 // wordWrap('hello',5) -> 'hello'
 // wordWrap('longword',4) -> 'long\nword'
 // wordWrap('reallylongword',4) ->'real\nlylo\nngwo\nrd'
@@ -14,5 +14,9 @@ import { wordWrapCalculator } from '../core/wordWrap';
 describe('Word wrap', () => {
   it('empty string returns empty string', () => {
     expect(wordWrapCalculator('', 5)).toEqual('');
-  })
+  });
+
+  it('returns complete word when is not longer than column wide', () => {
+    expect(wordWrapCalculator('hello',5)).toEqual('hello');
+  });
 });
