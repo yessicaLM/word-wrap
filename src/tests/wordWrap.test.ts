@@ -7,7 +7,7 @@ import { wordWrapCalculator } from '../core/wordWrap';
 // wordWrap('abc def',4) -> 'abc\ndef' --> DONE
 // wordWrap('abc def ghi',4) -> 'abc\ndef\nghi' --> DONE
 // wordWrap(' abcdf',4) -> '\nabcd' --> DONE
-// wordWrap(null,5) ->''
+// wordWrap(null,5) ->'' --> DONE
 // wordWrap('hello',-5) -> throw exception
 
 
@@ -39,5 +39,9 @@ describe('Word wrap', () => {
 
   it('null value returns empty string', () => {
     expect(wordWrapCalculator(null, 5)).toEqual('');
+  });
+
+  it('negative numbers for columns separators are not allowed', () => {
+    expect(() => wordWrapCalculator('hello',-5)).toThrow();
   });
 });
