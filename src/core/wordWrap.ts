@@ -1,5 +1,5 @@
 export const wordWrapCalculator = (stringValue: string, columnWide: number): string => {
-  if (stringValue === '') return '';
+  if (!stringValue) return '';
   if (stringValue.length <= columnWide) return stringValue;
 
   const listOfWords = [];
