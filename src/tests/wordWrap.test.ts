@@ -6,7 +6,7 @@ import { wordWrapCalculator } from '../core/wordWrap';
 // wordWrap('reallylongword',4) ->'real\nlylo\nngwo\nrd' -->DONE
 // wordWrap('abc def',4) -> 'abc\ndef' --> DONE
 // wordWrap('abc def ghi',4) -> 'abc\ndef\nghi' --> DONE
-// wordWrap(' abcdf',4) -> '\nabcd'
+// wordWrap(' abcdf',4) -> '\nabcd' --> DONE
 // wordWrap(null,5) ->''
 // wordWrap('hello',-5) -> throw exception
 
@@ -35,5 +35,9 @@ describe('Word wrap', () => {
 
   it('a blank space at the beginning of the word creates new a column', () => {
     expect(wordWrapCalculator(' abcdf',4)).toEqual('\nabcd\nf');
+  });
+
+  it('null value returns empty string', () => {
+    expect(wordWrapCalculator(null, 5)).toEqual('');
   });
 });
