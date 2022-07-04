@@ -1,47 +1,69 @@
 import { wordWrapCalculator } from '../core/wordWrap';
 
-// wordWrap('',5) -> '' --> DONE
-// wordWrap('hello',5) -> 'hello' --> DONE
-// wordWrap('longword',4) -> 'long\nword' --> DONE
-// wordWrap('reallylongword',4) ->'real\nlylo\nngwo\nrd' -->DONE
-// wordWrap('abc def',4) -> 'abc\ndef' --> DONE
-// wordWrap('abc def ghi',4) -> 'abc\ndef\nghi' --> DONE
-// wordWrap(' abcdf',4) -> '\nabcd' --> DONE
-// wordWrap(null,5) ->'' --> DONE
-// wordWrap('hello',-5) -> throw exception
-
-
 describe('Word wrap', () => {
   it('empty string returns empty string', () => {
-    expect(wordWrapCalculator('', 5)).toEqual('');
+    const currentValue = '';
+    const columnBreakPosition = 5;
+    const expectedValue = '';
+
+    expect(wordWrapCalculator(currentValue, columnBreakPosition)).toEqual(expectedValue);
   });
 
   it('returns complete word when is not longer than column wide', () => {
-    expect(wordWrapCalculator('hello',5)).toEqual('hello');
+    const currentValue = 'hello';
+    const columnBreakPosition = 5;
+    const expectedValue = 'hello';
+
+    expect(wordWrapCalculator(currentValue, columnBreakPosition)).toEqual(expectedValue);
   });
 
   it('separate column is created when the word is wider than the column', () => {
-    expect(wordWrapCalculator('longword',4)).toEqual('long\nword');
+    const currentValue = 'longword';
+    const columnBreakPosition = 4;
+    const expectedValue = 'long\nword';
+
+    expect(wordWrapCalculator(currentValue, columnBreakPosition)).toEqual(expectedValue);
   });
 
   it('separate columns are created when the words are wider than the columns', () => {
-    expect(wordWrapCalculator('reallylongword',4)).toEqual('real\nlylo\nngwo\nrd');
+    const currentValue = 'reallylongword';
+    const columnBreakPosition = 4;
+    const expectedValue = 'real\nlylo\nngwo\nrd';
+
+    expect(wordWrapCalculator(currentValue, columnBreakPosition)).toEqual(expectedValue);
   });
 
   it('a blank space just before the cut creates new a column', () => {
-    expect(wordWrapCalculator('abc def',4)).toEqual('abc\ndef');
-    expect(wordWrapCalculator('abc def ghi',4)).toEqual('abc\ndef\nghi');
+    let currentValue = 'abc def';
+    const columnBreakPosition = 4;
+    let expectedValue = 'abc\ndef';
+    expect(wordWrapCalculator(currentValue, columnBreakPosition)).toEqual(expectedValue);
+
+    currentValue = 'abc def ghi';
+    expectedValue = 'abc\ndef\nghi';
+    expect(wordWrapCalculator(currentValue, columnBreakPosition)).toEqual(expectedValue);
   });
 
   it('a blank space at the beginning of the word creates new a column', () => {
-    expect(wordWrapCalculator(' abcdf',4)).toEqual('\nabcd\nf');
+    const currentValue = ' abcdf';
+    const columnBreakPosition = 4;
+    const expectedValue = '\nabcd\nf';
+
+    expect(wordWrapCalculator(currentValue, columnBreakPosition)).toEqual(expectedValue);
   });
 
   it('null value returns empty string', () => {
-    expect(wordWrapCalculator(null, 5)).toEqual('');
+    const currentValue = null;
+    const columnBreakPosition = 5;
+    const expectedValue = '';
+
+    expect(wordWrapCalculator(currentValue, columnBreakPosition)).toEqual(expectedValue);
   });
 
-  it('negative numbers for columns separators are not allowed', () => {
-    expect(() => wordWrapCalculator('hello',-5)).toThrow();
+  it('negative numbers for columns breaks are not allowed', () => {
+    const currentValue = 'hello';
+    const columnBreakPosition = -5;
+
+    expect(() => wordWrapCalculator(currentValue, columnBreakPosition)).toThrow();
   });
 });
