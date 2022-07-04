@@ -3,7 +3,7 @@ import { wordWrapCalculator } from '../core/wordWrap';
 // wordWrap('',5) -> '' --> DONE
 // wordWrap('hello',5) -> 'hello' --> DONE
 // wordWrap('longword',4) -> 'long\nword' --> DONE
-// wordWrap('reallylongword',4) ->'real\nlylo\nngwo\nrd'
+// wordWrap('reallylongword',4) ->'real\nlylo\nngwo\nrd' -->DONE
 // wordWrap('abc def',4) -> 'abc\ndef' 
 // wordWrap('abc def ghi',4) -> 'abc\ndef\nghi'
 // wordWrap('' abcdf',4) -> '\nabcd'
@@ -26,5 +26,9 @@ describe('Word wrap', () => {
 
   it('separate columns are created when the words are wider than the columns', () => {
     expect(wordWrapCalculator('reallylongword',4)).toEqual('real\nlylo\nngwo\nrd');
+  });
+
+  it('a blank space just before the cut creates new a column', () => {
+    expect(wordWrapCalculator('abc def',4)).toEqual('abc\ndef');
   });
 });
